@@ -74,6 +74,6 @@ ALTER TABLE gradle_jdbc.employee
 		);
 
 	
-drop user 'user_gradle_jdbc'@'localhost';
-grant all privileges on gradle_jdbc.* to 'user_gradle_jdbc'@'localjost' identitified by 'rootroot';
+drop user if exists 'user_gradle_jdbc'@'localhost';
+grant all privileges on gradle_jdbc.* to 'user_gradle_jdbc'@'localhost' identified by 'rootroot';
 flush privileges;
