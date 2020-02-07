@@ -4,8 +4,7 @@ DROP SCHEMA IF EXISTS gradle_jdbc;
 -- 그레이들_프로젝
 CREATE SCHEMA gradle_jdbc;
 
-
-	
+-- 직책
 CREATE TABLE gradle_jdbc.title (
 	title_no   INTEGER     NOT NULL COMMENT '직책번호', -- 직책번호
 	title_name VARCHAR(20) NOT NULL COMMENT '직책명' -- 직책명
@@ -52,16 +51,6 @@ ALTER TABLE gradle_jdbc.employee
 	ADD CONSTRAINT PK_employee -- 사원 기본키
 		PRIMARY KEY (
 			emp_no -- 사원번호
-		);
-
--- 사원
-ALTER TABLE gradle_jdbc.employee
-	ADD CONSTRAINT FK_title_TO_employee -- 직책 -> 사원
-		FOREIGN KEY (
-			title -- 직책
-		)
-		REFERENCES gradle_jdbc.title ( -- 직책
-			title_no -- 직책번호
 		);
 
 -- 사원
