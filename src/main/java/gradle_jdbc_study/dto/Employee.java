@@ -1,15 +1,18 @@
 package gradle_jdbc_study.dto;
 
-import java.util.Arrays;
+import java.util.Date;
 
 public class Employee {
 	private int empNo;
 	private String empName;
-	private String title;
+	private Title title;
 	private Employee manager;
 	private int salary;
 	private Department dept;
+	private String passwd;
+	private Date hireDate;
 	private byte[] pic;
+
 	
 	public Employee() {
 		
@@ -19,14 +22,28 @@ public class Employee {
 		this.empNo = empNo;
 	}
 
-	public Employee(int empNo, String empName, String title, Employee manager, int salary, Department dept,
-			byte[] pic) {
+	public Employee(int empNo, String empName, Title title, Employee manager, int salary, Department dept,
+			String passwd, Date hireDate) {
 		this.empNo = empNo;
 		this.empName = empName;
 		this.title = title;
 		this.manager = manager;
 		this.salary = salary;
 		this.dept = dept;
+		this.passwd = passwd;
+		this.hireDate = hireDate;
+	}
+
+	public Employee(int empNo, String empName, Title title, Employee manager, int salary, Department dept,
+			String passwd, Date hireDate, byte[] pic) {
+		this.empNo = empNo;
+		this.empName = empName;
+		this.title = title;
+		this.manager = manager;
+		this.salary = salary;
+		this.dept = dept;
+		this.passwd = passwd;
+		this.hireDate = hireDate;
 		this.pic = pic;
 	}
 
@@ -46,11 +63,14 @@ public class Employee {
 		this.empName = empName;
 	}
 
-	public String getTitle() {
+
+
+
+	public Title getTitle() {
 		return title;
 	}
 
-	public void setTitle(String title) {
+	public void setTitle(Title title) {
 		this.title = title;
 	}
 
@@ -78,6 +98,22 @@ public class Employee {
 		this.dept = dept;
 	}
 
+	public String getPasswd() {
+		return passwd;
+	}
+
+	public void setPasswd(String passwd) {
+		this.passwd = passwd;
+	}
+
+	public Date getHireDate() {
+		return hireDate;
+	}
+
+	public void setHireDate(Date hireDate) {
+		this.hireDate = hireDate;
+	}
+
 	public byte[] getPic() {
 		return pic;
 	}
@@ -90,13 +126,7 @@ public class Employee {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((dept == null) ? 0 : dept.hashCode());
-		result = prime * result + ((empName == null) ? 0 : empName.hashCode());
 		result = prime * result + empNo;
-		result = prime * result + ((manager == null) ? 0 : manager.hashCode());
-		result = prime * result + Arrays.hashCode(pic);
-		result = prime * result + salary;
-		result = prime * result + ((title == null) ? 0 : title.hashCode());
 		return result;
 	}
 
@@ -109,43 +139,22 @@ public class Employee {
 		if (getClass() != obj.getClass())
 			return false;
 		Employee other = (Employee) obj;
-		if (dept == null) {
-			if (other.dept != null)
-				return false;
-		} else if (!dept.equals(other.dept))
-			return false;
-		if (empName == null) {
-			if (other.empName != null)
-				return false;
-		} else if (!empName.equals(other.empName))
-			return false;
 		if (empNo != other.empNo)
-			return false;
-		if (manager == null) {
-			if (other.manager != null)
-				return false;
-		} else if (!manager.equals(other.manager))
-			return false;
-		if (!Arrays.equals(pic, other.pic))
-			return false;
-		if (salary != other.salary)
-			return false;
-		if (title == null) {
-			if (other.title != null)
-				return false;
-		} else if (!title.equals(other.title))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Employee [empNo=" + empNo + ", empName=" + empName + ", title=" + title + ", manager=" + manager
-				+ ", salary=" + salary + ", dept=" + dept + ", pic=" + Arrays.toString(pic) + "]";
+		return String.format(
+				"Employee [empNo=%s, empName=%s, title=%s, manager=%s, salary=%s, dept=%s, passwd=%s, hireDate=%s, pic=%s]",
+				empNo, empName, title.getTitleNo(), manager.getEmpNo(), salary, dept.getDeptNo(), passwd, 
+				String.format("%1$tF %1$tT", hireDate), pic !=null?pic.length:null);
 	}
-	
-	
+
+
 	
 	
 	
 }
+
