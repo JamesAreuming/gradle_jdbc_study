@@ -3,7 +3,7 @@ package gradle_jdbc_study.dto;
 public class Title {
 	private int titleNo;
 	private String titleName;
-	
+
 	public Title() {
 	}
 
@@ -56,8 +56,8 @@ public class Title {
 
 	@Override
 	public String toString() {
-		return "Title [titleNo=" + titleNo + ", titleName=" + titleName + "]";
+		return String.format("%s(%d)", titleName, titleNo);		
+//		return "Title [titleNo=" + titleNo + ", titleName=" + titleName + "]";
 	}
-	
-	
+
 }

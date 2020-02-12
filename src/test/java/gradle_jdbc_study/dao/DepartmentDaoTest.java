@@ -46,7 +46,7 @@ public class DepartmentDaoTest {
 	@Test
 	public void test01SelectDepartByNo() {
 		LogUtil.prnLog(Thread.currentThread().getStackTrace()[1].getMethodName()+"()");
-		Department department = dao.selectDepartByNo(new Department(3));
+		Department department = dao.selectDepartmentByNo(new Department(3));
 		Assert.assertNotNull(department);
 	}
 
